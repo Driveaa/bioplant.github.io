@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./imgs/favicon.ico" type="image/x-icon" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./detalle-css.css" />
+    <title>Echeveria elegans - BioPlant</title>
+  </head>
+  <body>
+    <!-- Encabezado -->
+    <header>
+      <div class="back-button">
+        <a href="index.html">Atrás</a>
+      </div>
+      <h1>BioPlant</h1>
+    </header>
+
+    <!-- Contenedor principal de imagen e información -->
+    <div class="container" id="content">
+      <div class="image-container">
+        <img
+          src="https://www.viveroadomicilio.mx/cdn/shop/products/EcheveriaElegans_grande.png?v=1684874804?v=1690305903&width=1445"
+          alt="Echeveria elegans"
+        />
+        <!-- Burbujas de consejos de cuidado -->
+        <div class="bubble" id="bubble1" style="top: 10%; left: 20%">
+          Riega moderadamente.
+        </div>
+        <div class="bubble" id="bubble2" style="top: 40%; right: 10%">
+          Prefiere luz directa.
+        </div>
+        <div class="bubble" id="bubble3" style="bottom: 10%; left: 50%">
+          Resistente al calor.
+        </div>
+        <div class="bubble" id="bubble4" style="top: 30%; left: 40%">
+          Evita el exceso de riego.
+        </div>
+        <div class="bubble" id="bubble5" style="bottom: 20%; right: 30%">
+          Ideal para exteriores.
+        </div>
+      </div>
+      <button class="water-button" id="waterButton">Regar</button>
+      <div class="info">
+        <h2>Echeveria elegans</h2>
+        <p><strong>Riego:</strong> Solo cuando el sustrato esté completanmente seco. Generalmente, cada 1-2 semanas en verano y menos en invierno.</p>
+        <p><strong>Luz:</strong> Luz brillante e indirecta: Prefiere espación bien iluminados, idealmente con 4-6 horas de luz solar directa por la mañana o al atardecer.</p>
+        <p><strong>Temperatura:</strong> 15°C - 25°C. Es sensible al frío intenso.</p>
+        <p><strong>Humedad:</strong> No necesita alta humedad; en ambientes húmedos, asegúrate de que tenga buena ventilación.</p>
+        <p>
+          <strong>Fertilización:</strong> Fertiliza una vez al mes durante la primavera y el verano con un fertilizante líquido para cactus.
+        </p>
+      </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+      <p>&copy; 2024 BioPlant - Todos los derechos reservados</p>
+    </footer>
+
+    <div class="water-status" id="waterStatus">
+      <span id="face" class="sad-face">😞</span>
+    </div>
+
+    <script>
+      const waterButton = document.getElementById("waterButton");
+      const waterStatus = document.getElementById("waterStatus");
+      const face = document.getElementById("face");
+
+      // Utiliza una clave única para Echeverria elegans en localStorage
+      const plantKey = "isWateredCoronaDeCrist";
+      let isWatered = localStorage.getItem(plantKey) === "true";
+
+      function updateWaterStatus() {
+        if (isWatered) {
+          waterButton.classList.add("green");
+          waterButton.classList.remove("red");
+          waterButton.textContent = "Ya está regado";
+          waterStatus.style.backgroundColor = "green";
+          face.textContent = "😊";
+        } else {
+          waterButton.classList.remove("green");
+          waterButton.classList.add("red");
+          waterButton.textContent = "Regar";
+          waterStatus.style.backgroundColor = "red";
+          face.textContent = "😞";
+        }
+      }
+
+      waterButton.addEventListener("click", function () {
+        isWatered = !isWatered;
+        localStorage.setItem(plantKey, isWatered);
+        updateWaterStatus();
+      });
+
+      updateWaterStatus();
+    </script>
+  </body>
+</html>

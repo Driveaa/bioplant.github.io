@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="./imgs/favicon.ico" type="image/x-icon" />
+    <title>BioPlant - Tienda de Plantas</title>
+    <style>
+      main {
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      /* Estilos Generales */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f8f5;
+      }
+
+      /* Animación de Pantalla Verde */
+      .screen-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #4caf50;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3em;
+        font-weight: bold;
+        z-index: 9999;
+        animation: slideOut 3s forwards;
+      }
+
+      @keyframes slideOut {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      /* Encabezado */
+      header {
+        background-color: #4caf50;
+        color: white;
+        padding: 1em 0;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 2em;
+      }
+
+      /* Sección "Bienvenido a BioPlant" */
+      .welcome {
+        padding: 3em 2em;
+        background-color: #fff;
+        text-align: center;
+        margin-top: 70px;
+      }
+
+      .welcome h2 {
+        color: #4caf50;
+        margin-bottom: 0.5em;
+      }
+
+      .welcome p {
+        font-size: 1.2em;
+        line-height: 1.6;
+        color: #555;
+      }
+
+      /* Sección Productos */
+      .products {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .product {
+        padding-top: 1rem;
+        height: auto;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+      }
+
+      .product img {
+        width: 100%;
+      }
+
+      .product-img-fit {
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        border-radius: 3px;
+      }
+
+      .product h3 {
+        color: #4caf50;
+        margin-top: 1em;
+      }
+
+      @media (max-width: 768px) {
+        .products {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .product {
+          /* width: 80%; */
+          margin-bottom: 2em;
+        }
+      }
+
+      /* Sección Atención al Cliente */
+      .atencion {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+      }
+
+      .atencion p {
+        font-size: 1em;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 1em;
+      }
+
+      .social-links a {
+        color: white;
+        font-size: 1.5em;
+        text-decoration: none;
+      }
+
+      /* Pie de Página */
+      footer {
+        width: 100%;
+        background-color: #4caf50;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        font-size: 0.9em;
+      }
+
+      /* Estilos Responsivos */
+      @media (max-width: 768px) {
+        .atencion {
+          padding: 1em;
+          font-size: 0.9em;
+        }
+
+        .social-links {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+
+      .sub-title {
+        color: #4caf50;
+        text-align: center;
+        font-size: 50px;
+      }
+
+      .product-price {
+        font-size: 18px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Animación de Pantalla Verde -->
+    <div class="screen-overlay">BioPlant</div>
+
+    <main>
+      <!-- Encabezado -->
+      <header>
+        <h1>BioPlant</h1>
+      </header>
+
+      <!-- Sección "Bienvenido a BioPlant" -->
+      <section class="welcome">
+        <h2>Bienvenido a BioPlant</h2>
+        <p>
+          En BioPlant nos apasiona llevar la naturaleza a tu hogar. Ofrecemos
+          una amplia variedad de plantas de interior y exterior, con el
+          compromiso de brindarte el mejor cuidado y atención. Ya sea que
+          busques decorar tu espacio o mejorar tu bienestar, estamos aquí para
+          ayudarte a encontrar la planta perfecta.
+        </p>
+      </section>
+
+      <!-- Sección de Productos -->
+      <h2 class="sub-title">Plantas</h2>
+      <p style="text-align: center; font-size: 1.2em; color: #555">
+        Próximamente más plantas
+      </p>
+      <section class="products">
+        <div class="product">
+          <img src="./imgs/plants/aloe-vera.webp" alt="Sábila" />
+          <div>
+            <h3>Sábila</h3>
+            <p class="product-price">$60 mxn</p>
+          </div>
+        </div>
+        <div class="product">
+          <img src="./imgs/plants/Venus.webp" alt="Venus Carbonell" />
+          <div>
+            <h3>Venus Carbonell</h3>
+            <p class="product-price">$130 mxn</p>
+          </div>
+        </div>
+        <div class="product">
+          <img src="./imgs/plants/echeverria.webp" alt="Echeveria elegans" />
+          <div>
+            <h3>Echeveria elegans</h3>
+            <p class="product-price">$75 mxn</p>
+          </div>
+        </div>
+        <div class="product">
+          <img src="./imgs/plants/suculenta.webp" alt="Marmolito de Oaxaca" />
+          <div>
+            <h3>Marmolito de Oaxaca</h3>
+            <p class="product-price">$70 mxn</p>
+          </div>
+        </div>
+      </section>
+
+      <h2 class="sub-title">Productos</h2>
+      <section class="products">
+        <div class="product">
+          <img
+            class="product-img-fit"
+            src="./imgs/products/aerosol.png"
+            alt="Aerosol"
+          />
+          <div>
+            <h3>Aerosol</h3>
+            <p>
+              Protege tus plantas de plagas con nuestro insecticida 100% natural
+              y efectivo. Diseñado para combatir insectos como pulgones,
+              cochinillas, ácaros y mosca blanca, sin dañar tus plantas ni el
+              medio ambiente. Ideal para todo tipo de jardines, huertos y
+              plantas de interior.
+            </p>
+            <p class="product-price">$60 - 500ml.</p>
+          </div>
+        </div>
+        <div class="product">
+          <img
+            class="product-img-fit"
+            src="./imgs/products/fertilizante.png"
+            alt="Fertilizante"
+          />
+          <div>
+            <h3>Fertilizante</h3>
+            <p>
+              Dale a tus plantas el impulso que necesitan para crecer fuertes y
+              saludables con nuestro fertilizante de alta calidad. Formulado con
+              una mezcla equilibrada de nutrientes esenciales, promueve un
+              crecimiento vigoroso, hojas más verdes y flores más vibrantes.
+            </p>
+            <p class="product-price">$30mx - 500gr.</p>
+          </div>
+        </div>
+        <div class="product">
+          <img
+            class="product-img-fit"
+            src="./imgs/products/bolsa_de_tierra.png"
+            alt="bolsa de tierra"
+          />
+          <div>
+            <h3>Tierra preparada</h3>
+            <p>
+              Tierra para plantas: Mejora el crecimiento y salud de tus plantas
+              con nuestra mezcla de tierra especialmente formulada. Rica en
+              nutrientes, aireada y con excelente retención de humedad, es ideal
+              para todo tipo de plantas. Perfecta para macetas, jardines y
+              trasplantes. ¡Dale a tus plantas la base que necesitan para
+              florecer y crecer fuertes!
+            </p>
+            <p class="product-price">$50 - 1kg.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Atención al Cliente y Redes Sociales -->
+    </main>
+    <div class="atencion">
+      <p>
+        Atención al cliente: contacto@bioplant.com | Teléfono: +123 456 7890
+      </p>
+      <div class="social-links">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+    <!-- Pie de Página -->
+    <footer>
+      <p>&copy; 2024 BioPlant - Todos los derechos reservados</p>
+    </footer>
+  </body>
+</html>
+
+<!-- triggering vercel deploy -->

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./imgs/favicon.ico" type="image/x-icon" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./detalle-css.css" />
+    <title>Sábila - BioPlant</title>
+  </head>
+  <body>
+    <!-- Encabezado -->
+    <header>
+      <div class="back-button">
+        <a href="index.html">Atrás</a>
+      </div>
+      <h1>BioPlant</h1>
+    </header>
+
+    <!-- Contenedor principal de imagen e información -->
+    <div class="container" id="content">
+      <div class="image-container">
+        <img
+          src="https://png.pngtree.com/png-vector/20240607/ourmid/pngtree-aloe-vera-plant-in-pot-png-image_12642071.png"
+          alt="Sábila"
+        />
+        <!-- Burbujas de consejos de cuidado -->
+        <div class="bubble" id="bubble1" style="top: 10%; left: 20%">
+          Riega cada 1-2 semanas.
+        </div>
+        <div class="bubble" id="bubble2" style="top: 40%; right: 10%">
+          Prefiere luz indirecta.
+        </div>
+        <div class="bubble" id="bubble3" style="bottom: 10%; left: 50%">
+          Mantener en temperaturas cálidas.
+        </div>
+        <div class="bubble" id="bubble4" style="top: 30%; left: 40%">
+          Evita el exceso de agua.
+        </div>
+        <div class="bubble" id="bubble5" style="bottom: 20%; right: 30%">
+          Ideal para interiores.
+        </div>
+      </div>
+      <button class="water-button" id="waterButton">Regar</button>
+      <div class="info">
+        <h2>Cuidado de Sábila</h2>
+        <p><strong>Riego:</strong> Cada 1-2 semanas.</p>
+        <p><strong>Luz:</strong> Prefiere luz indirecta.</p>
+        <p><strong>Temperatura:</strong> 18°C - 30°C.</p>
+        <p><strong>Humedad:</strong> Alta humedad.</p>
+        <p><strong>Fertilización:</strong> Abonar en primavera y verano.</p>
+      </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+      <p>&copy; 2024 BioPlant - Todos los derechos reservados</p>
+    </footer>
+
+    <div class="water-status" id="waterStatus">
+      <img
+        src="./imgs/sad.svg"
+        alt="plant-feelings"
+        id="emoji-img"
+        width="50"
+        height="50"
+      />
+    </div>
+
+    <script>
+      const waterButton = document.getElementById("waterButton");
+      const waterStatus = document.getElementById("waterStatus");
+      const plantImg = document.getElementById("emoji-img");
+      const face = document.getElementById("face");
+
+      // Utiliza una clave única para Sábila en localStorage
+      const plantKey = "isWateredSabila";
+      let isWatered = localStorage.getItem(plantKey) === "true";
+
+      function updateWaterStatus() {
+        if (isWatered) {
+          waterButton.classList.add("green");
+          waterButton.classList.remove("red");
+          waterButton.textContent = "Ya está regado";
+          waterStatus.style.backgroundColor = "green";
+          //   face.textContent = "😊";
+          plantImg.src = "./imgs/happy.svg";
+        } else {
+          waterButton.classList.remove("green");
+          waterButton.classList.add("red");
+          waterButton.textContent = "Regar";
+          waterStatus.style.backgroundColor = "red";
+          //   face.textContent = "😞";
+          plantImg.src = "./imgs/sad.svg";
+        }
+      }
+
+      waterButton.addEventListener("click", function () {
+        isWatered = !isWatered;
+        localStorage.setItem(plantKey, isWatered);
+        updateWaterStatus();
+      });
+
+      updateWaterStatus();
+    </script>
+  </body>
+</html>
